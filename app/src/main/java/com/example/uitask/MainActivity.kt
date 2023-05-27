@@ -1,7 +1,9 @@
 package com.example.uitask
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,9 +16,8 @@ class MainActivity : AppCompatActivity() {
         val rando:TextView=findViewById(R.id.textView)
         val date:TextView=findViewById(R.id.textView4)
         val c = Calendar.getInstance()
-
+        val button:Button=findViewById(R.id.button2)
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         val month_date = SimpleDateFormat("MMMM")
         val monthnum = 5
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         date.setText(dateString)
         val random=(999..99999).shuffled().last()
         rando.setText(random.toString())
+        button.setOnClickListener(){
+            Toast.makeText(this,"Issue Reported",Toast.LENGTH_LONG).show()
+        }
     }
 
 }
